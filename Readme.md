@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алексей Маркин](https://up.htmlacademy.ru/javascript/15/user/221306).
-* Наставник: `Неизвестно`.
+* Наставник: `Дмитрий Маров`.
 
 ---
 
