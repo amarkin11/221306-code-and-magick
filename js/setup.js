@@ -22,17 +22,17 @@ var wizards = [
     eyesColor: EYES_COLORS[0]
   },
   {
-    name: WIZARD_NAMES[1]  + ' ' + SECOND_NAMES[1],
+    name: WIZARD_NAMES[1] + ' ' + SECOND_NAMES[1],
     coatColor: COAT_COLORS[1],
     eyesColor: EYES_COLORS[1]
   },
   {
-    name: WIZARD_NAMES[2]  + ' ' + SECOND_NAMES[2],
+    name: WIZARD_NAMES[2] + ' ' + SECOND_NAMES[2],
     coatColor: COAT_COLORS[2],
     eyesColor: EYES_COLORS[2]
   },
   {
-    name: WIZARD_NAMES[3]  + ' ' + SECOND_NAMES[3],
+    name: WIZARD_NAMES[3] + ' ' + SECOND_NAMES[3],
     coatColor: COAT_COLORS[3],
     eyesColor: EYES_COLORS[3]
   }
@@ -45,7 +45,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 
