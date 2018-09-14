@@ -8,8 +8,6 @@ var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161
 
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var wizards = [];
-
 var setupBlock = document.querySelector('.setup');
 setupBlock.classList.remove('hidden');
 
@@ -17,16 +15,27 @@ document.querySelector('.setup-similar').classList.remove('hidden');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-var getRandomValue = function (arr) {
+var randomArrayIndex = function (arr) {
   return Math.floor(Math.random() * arr.length);
 };
 
+var randomValue = function (arr) {
+  return arr[randomArrayIndex(arr)];
+};
+
+var generateRandomWizard = function () {
+  var randonWizard = {};
+  randonWizard.name = randomValue(FIRST_NAMES) + ' ' + randomValue(SECOND_NAMES);
+  randonWizard.coatColor = randomValue(COAT_COLORS);
+  randonWizard.eyesColor = randomValue(EYES_COLORS);
+
+  return randonWizard;
+};
+
+var wizards = [];
+
 for (var i = 0; i < 4; i++) {
-  wizards.push({
-    name: FIRST_NAMES[getRandomValue(FIRST_NAMES)] + ' ' + SECOND_NAMES[getRandomValue(SECOND_NAMES)],
-    coatColor: COAT_COLORS[getRandomValue(COAT_COLORS)],
-    eyesColor: EYES_COLORS[getRandomValue(EYES_COLORS)]
-  })
+  wizards.push(generateRandomWizard());
 }
 
 var renderWizard = function (wizard) {
@@ -40,14 +49,14 @@ var renderWizard = function (wizard) {
 
 var fragment = document.createDocumentFragment();
 
-var createWizards = function () {
-  for (var i = 0; i < wizards.length; i++) {
+var createWizrads = function () {
+  for (i = 0; i < wizards.length; i++) {
     fragment.appendChild(renderWizard(wizards[i]));
   }
 
   similarListElement.appendChild(fragment);
 };
 
-createWizards();
+createWizrads();
 
 setupBlock.querySelector('.setup-similar').classList.remove('hidden');
