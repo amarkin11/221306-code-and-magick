@@ -1,12 +1,14 @@
 'use strict';
 
-var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 
 var SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+
+var wizards = [];
 
 var setupBlock = document.querySelector('.setup');
 setupBlock.classList.remove('hidden');
@@ -19,28 +21,13 @@ var getRandomValue = function (arr) {
   return Math.floor(Math.random() * arr.length);
 };
 
-var wizards = [
-  {
-    name: WIZARD_NAMES[getRandomValue(WIZARD_NAMES)] + ' ' + SECOND_NAMES[getRandomValue(SECOND_NAMES)],
+for (var i = 0; i < 4; i++) {
+  wizards.push({
+    name: FIRST_NAMES[getRandomValue(FIRST_NAMES)] + ' ' + SECOND_NAMES[getRandomValue(SECOND_NAMES)],
     coatColor: COAT_COLORS[getRandomValue(COAT_COLORS)],
     eyesColor: EYES_COLORS[getRandomValue(EYES_COLORS)]
-  }
-  // {
-  //   name: WIZARD_NAMES[1] + ' ' + SECOND_NAMES[1],
-  //   coatColor: COAT_COLORS[1],
-  //   eyesColor: EYES_COLORS[1]
-  // },
-  // {
-  //   name: WIZARD_NAMES[2] + ' ' + SECOND_NAMES[2],
-  //   coatColor: COAT_COLORS[2],
-  //   eyesColor: EYES_COLORS[2]
-  // },
-  // {
-  //   name: WIZARD_NAMES[3] + ' ' + SECOND_NAMES[3],
-  //   coatColor: COAT_COLORS[3],
-  //   eyesColor: EYES_COLORS[3]
-  // }
-];
+  })
+}
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -53,10 +40,14 @@ var renderWizard = function (wizard) {
 
 var fragment = document.createDocumentFragment();
 
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
+var createWizards = function () {
+  for (var i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
 
-similarListElement.appendChild(fragment);
+  similarListElement.appendChild(fragment);
+};
+
+createWizards();
 
 setupBlock.querySelector('.setup-similar').classList.remove('hidden');
