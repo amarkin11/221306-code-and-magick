@@ -53,11 +53,11 @@ window.renderStatistics = function (ctx, players, times) {
   var maxTime = getMaxElement(times);
 
   var getRandomColor = function (min, max) {
-    return Math.random(min, max);
+    return Math.floor(Math.random() * (max - min)) + min;
   };
 
   for (var i = 0; i < players.length; i++) {
-    var barColorPlayers = 'rgba(0, 0, 255,' + getRandomColor(0.2, 1).toFixed(1) + ')';
+    var barColorPlayers = 'rgb(0, 0,' + getRandomColor(0, 255) + ')';
     ctx.fillStyle = TEXT_COLOR;
     ctx.fillText(players[i], GAP_X + (GAP + BAR_WIDTH) * i, TEXT_Y);
     ctx.fillStyle = players[i] === 'Вы' ? BAR_COLOR_MY : barColorPlayers;
