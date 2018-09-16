@@ -1,5 +1,6 @@
 'use strict';
 
+var WIZARDS_AMOUNT = 4;
 var FIRST_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
@@ -76,7 +77,7 @@ var generateRandomWizard = function () {
 
 var wizards = [];
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < WIZARDS_AMOUNT; i++) {
   wizards.push(generateRandomWizard());
 }
 
